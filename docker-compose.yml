@@ -1,6 +1,11 @@
 version: '3.7'
 
 services:
+  webspa:
+    image: paymentgateway/webspa
+    build:
+      context: .
+      dockerfile: src/WebApp/WebSPA/Dockerfile
   identity.api:
     image: paymentgateway/identityapi
     build:
@@ -16,8 +21,4 @@ services:
     build:
       context: .
       dockerfile: src/Services/Payment/Payment.API/Dockerfile
-  webspa:
-    image: paymentgateway/webspa
-    build:
-      context: .
-      dockerfile: src/WebApp/WebSPA/Dockerfile
+
