@@ -70,13 +70,10 @@ services:
     network_mode: bridge
 
     # Link this container to the postgres container with hostname 'postgres'
-    external_links:
-      - postgres:postgres
+    #external_links:
+    #  - postgres:postgres
 
     environment:
       PGADMIN_DEFAULT_EMAIL: 'admin@example.com'
       PGADMIN_DEFAULT_PASSWORD: 'admin'
-    volumes:
-      - ./path/to/certificate.cert:/certs/server.cert
-      - ./path/to/certificate.key:/certs/server.key
 
