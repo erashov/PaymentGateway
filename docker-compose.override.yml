@@ -51,6 +51,7 @@ services:
 
   postgres:
     # Expose the default Postgres port on localhost
+    command: -c ssl=on -c ssl_cert_file=/var/lib/postgresql/server.crt -c ssl_key_file=/var/lib/postgresql/server.key
     ports:
       - '5432:5432'
     network_mode: bridge
@@ -59,10 +60,13 @@ services:
       POSTGRES_USER: 'postgres'
       POSTGRES_PASSWORD: 'pgpass'
       POSTGRES_DB: 'postgres'
+    volumes:
+      - ./ca/server.crt:/var/lib/postgresql/server.crt
+      - ./ca/server.key:/var/lib/postgresql/server.key
 
   pgadmin:
     ports:
-      - '8081:80'
+      - '44314:443'
     network_mode: bridge
 
     # Link this container to the postgres container with hostname 'postgres'
@@ -72,4 +76,7 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: 'admin@example.com'
       PGADMIN_DEFAULT_PASSWORD: 'admin'
+    volumes:
+      - ./path/to/certificate.cert:/certs/server.cert
+      - ./path/to/certificate.key:/certs/server.key
 
