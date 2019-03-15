@@ -25,5 +25,7 @@ services:
     image: postgres:11.2-alpine
   pgadmin:
     image: nphung/pgadmin
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
 
 
