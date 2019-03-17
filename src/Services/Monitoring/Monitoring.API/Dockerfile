@@ -1,9 +1,9 @@
-FROM microsoft/dotnet:2.2-aspnetcore-runtime-alpine3.8 AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2-alpine3.9 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM microsoft/dotnet:2.2-sdk-alpine3.8 AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2-alpine3.9 AS build
 WORKDIR /src
 COPY ["src/Services/Monitoring/Monitoring.API/Monitoring.API.csproj", "src/Services/Monitoring/Monitoring.API/"]
 RUN dotnet restore "src/Services/Monitoring/Monitoring.API/Monitoring.API.csproj"
