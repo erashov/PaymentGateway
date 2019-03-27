@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
+using System;
 
 namespace Identity.API
 {
@@ -14,8 +15,9 @@ namespace Identity.API
     {
         public static void Main(string[] args)
         {
-            var host = CreateWebHostBuilder(args).Build();
-            host.Run();
+            Console.Title = "IdentityServer4";
+
+            CreateWebHostBuilder(args).Build().Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args)
