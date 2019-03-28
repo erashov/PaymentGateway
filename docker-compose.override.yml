@@ -45,10 +45,15 @@ services:
       - '8080:80'
     network_mode: bridge
     environment:
-      PGADMIN_DEFAULT_EMAIL: 'admin@example.com'
-      PGADMIN_DEFAULT_PASSWORD: 'admin'
+      PGADMIN_DEFAULT_EMAIL: 'adm@akado.ru'
+      PGADMIN_DEFAULT_PASSWORD: 'P@ssw0rd'
   rabbitmq:
     ports:
       - "15672:15672"  # Important: In a production environment your should remove the external port
       - "5672:5672"    # Important: In a production environment your should remove the external port
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+      RABBITMQ_DEFAULT_USER: "adm"
+      RABBITMQ_DEFAULT_PASS: "P@ssw0rd"
+      RABBITMQ_DEFAULT_VHOST: "/"
 
