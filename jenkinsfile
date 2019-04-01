@@ -1,10 +1,13 @@
-node{
-  docker.withRegistry(‘https://registry.example.com/', ‘svc-acct’) {
+    node {
+ 
+    stage 'Checkout'
+        checkout scm
+    stage 'Build & UnitTest'
+  		sh 'dotnet restore'
+       // sh "docker-compose -f docker-compose.yml up"
   
-    checkout scm
-    stage(‘Build’) {
-      sh ‘docker-compose -f docker-compose.yml up’
-    
-    }
-  }
+    stage 'Integration Test'
+        		sh 'dotnet restore'
+      //  sh "docker-compose -f docker-compose.yml up"
+      //  sh "docker-compose -f docker-compose.yml down -v"
 }
