@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-node ('PaymentGateway') {
+node ('docker') {
 	stage('Build') {    
 		git url: 'https://github.com/erashov/PaymentGateway'
 
