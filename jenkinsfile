@@ -1,39 +1,22 @@
-pipeline {
-    agent { label 'docker' }
-    triggers {
-        bitbucketPush()
-    }
-    environment {
-        // Specify your environment variables..
-        APP_VERSION = '1'
-    }
-    stages {
-        stage('Build') {
-            steps {
-                // Print all the environment variables.
-                echo 'Install non-dev composer packages and test a symfony cache clear'
-                sh 'docker-compose -f docker-compose.yml up'
+#!/usr/bin/env groovy
 
-            }
-        }
-        stage('Test') {
-            steps {
+node ('PaymentGateway') {
+	stage('Build') {    
+		git url: 'https://github.com/erashov/PaymentGateway'
 
-            }
-        }
-        stage('Push') {
-            when {
-                branch 'master'
-            }
-            steps {
-                echo 'Deploying docker images'
+		sh 'dotnet restore'
+		//sh 'dotnet test test/simpleDotNet.Tests/project.json'
+	}
+	stage('Publish') {
 
-            }
-        }
-    }
-    post {
-        always {
+	}
+	stage('Production') {
+		withEnv([
+			"DOCKER_TLS_VERIFY=1",
+			//"DOCKER_HOST=tcp://abs.harebrained-apps.com:2376",
+			//"DOCKER_CERT_PATH=/usr/local/etc/jenkins/certs/"
+		]) {
 
-        }
-    }
-}
+		}
+	}
+} //node
