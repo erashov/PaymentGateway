@@ -1,22 +1,11 @@
-#!/usr/bin/env groovy
-
-node ('docker') {
-	stage('Build') {    
-		git url: 'https://github.com/erashov/PaymentGateway'
-
-		sh 'dotnet restore'
-		//sh 'dotnet test test/simpleDotNet.Tests/project.json'
-	}
-	stage('Publish') {
-
-	}
-	stage('Production') {
-		withEnv([
-			"DOCKER_TLS_VERIFY=1",
-			//"DOCKER_HOST=tcp://abs.harebrained-apps.com:2376",
-			//"DOCKER_CERT_PATH=/usr/local/etc/jenkins/certs/"
-		]) {
-
-		}
-	}
-} //node
+node('docker') {
+ 
+    stage 'Checkout'
+        checkout scm
+    stage 'Build & UnitTest'
+        sh "docker-compose -f docker-compose.yml up"
+  
+    stage 'Integration Test'
+        sh "docker-compose -f docker-compose.yml up"
+        sh "docker-compose -f docker-compose.yml down -v"
+}
