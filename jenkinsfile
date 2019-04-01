@@ -1,17 +1,10 @@
-pipeline {
-
-    environment {
-        PATH = "$PATH:/usr/local/bin"
-    }
-}
-node {
- 
-    stage 'Checkout'
-        checkout scm
-    stage 'Build & UnitTest'
-        sh "docker-compose -f docker-compose.yml up"
+node{
+  docker.withRegistry(‘https://registry.example.com/', ‘svc-acct’) {
   
-    stage 'Integration Test'
-        sh "docker-compose -f docker-compose.yml up"
-        sh "docker-compose -f docker-compose.yml down -v"
+    checkout scm
+    stage(‘Build’) {
+      sh ‘docker-compose -f docker-compose.yml up’
+    
+    }
+  }
 }
