@@ -4,7 +4,7 @@ pipeline {
         bitbucketPush()
     }
     environment {
-        // Specify your environment variables.
+        // Specify your environment variables..
         APP_VERSION = '1'
     }
     stages {
