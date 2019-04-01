@@ -1,1 +1,11 @@
-sh label: '', script: 'docker-compose -f docker-compose.yml up'
+node {
+ 
+    stage 'Checkout'
+        checkout scm
+    stage 'Build & UnitTest'
+        sh "docker-compose -f docker-compose.yml up"
+  
+    stage 'Integration Test'
+        sh "docker-compose -f docker-compose.yml up"
+        sh "docker-compose -f docker-compose.yml down -v"
+}
