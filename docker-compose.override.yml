@@ -29,7 +29,6 @@ services:
     ports:
       - "5003:80"
 
-
   postgres:
     ports:
       - '5432:5432'
@@ -42,11 +41,12 @@ services:
 
   pgadmin:
     ports:
-      - '8080:80'
+      - '8088:80'
     network_mode: bridge
     environment:
       PGADMIN_DEFAULT_EMAIL: 'adm@akado.ru'
       PGADMIN_DEFAULT_PASSWORD: 'P@ssw0rd'
+
   rabbitmq:
     ports:
       - "15672:15672"  # Important: In a production environment your should remove the external port
