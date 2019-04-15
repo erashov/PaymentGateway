@@ -232,3 +232,12 @@ System.IO.IOException: Failed to bind to address http://[::1]:5000: address alre
 2019-04-10 07:52:52.265 +00:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-out
 2019-04-10 07:52:52.266 +00:00 [DBG] Using idsrv as default ASP.NET Core scheme for challenge
 2019-04-10 07:52:52.267 +00:00 [DBG] Using idsrv as default ASP.NET Core scheme for forbid
+2019-04-15 11:05:30.898 +00:00 [WRN] No XML encryptor configured. Key "6f64196c-866b-44e5-b26d-3787b1a91c7b" may be persisted to storage in unencrypted form.
+2019-04-15 11:05:31.277 +00:00 [INF] Starting IdentityServer4 version 2.4.0.0
+2019-04-15 11:05:31.384 +00:00 [INF] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+2019-04-15 11:05:31.403 +00:00 [INF] Using the default authentication scheme idsrv for IdentityServer
+2019-04-15 11:05:31.403 +00:00 [DBG] Using idsrv as default ASP.NET Core scheme for authentication
+2019-04-15 11:05:31.406 +00:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-in
+2019-04-15 11:05:31.406 +00:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-out
+2019-04-15 11:05:31.412 +00:00 [DBG] Using idsrv as default ASP.NET Core scheme for challenge
+2019-04-15 11:05:31.413 +00:00 [DBG] Using idsrv as default ASP.NET Core scheme for forbid
