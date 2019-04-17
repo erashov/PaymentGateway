@@ -1,9 +1,8 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.2-alpine3.9 AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-alpine AS base
 WORKDIR /app
 EXPOSE 80
-EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2-alpine3.9 AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:3.0-alpine AS build
 WORKDIR /src
 COPY ["src/Services/Identity/Identity.API/Identity.API.csproj", "src/Services/Identity/Identity.API/"]
 RUN dotnet restore "src/Services/Identity/Identity.API/Identity.API.csproj"
