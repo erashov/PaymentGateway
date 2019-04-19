@@ -25,8 +25,8 @@ namespace Reestr.API
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseRouting(routes =>
+            app.UseRouting();
+            app.UseEndpoints(routes =>
             {
                 routes.MapGet("/", async context =>
                 {

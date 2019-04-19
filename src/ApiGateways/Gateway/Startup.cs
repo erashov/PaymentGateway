@@ -25,14 +25,15 @@ namespace Gateway
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseRouting(routes =>
+            app.UseRouting();
+            app.UseEndpoints(routes =>
             {
                 routes.MapGet("/", async context =>
                 {
                     await context.Response.WriteAsync("Hello World!");
                 });
             });
+
         }
     }
 }
