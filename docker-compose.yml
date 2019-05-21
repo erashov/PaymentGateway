@@ -21,6 +21,11 @@ services:
     build:
       context: .
       dockerfile: src/Services/Payment/Payment.API/Dockerfile
+  reestr.api:
+    image: paymentgateway/reestrapi
+    build:
+      context: .
+      dockerfile: src/Services/Reestr/Reestr.API/Dockerfile
   postgres:
     image: postgres:11.2-alpine
   pgadmin:
