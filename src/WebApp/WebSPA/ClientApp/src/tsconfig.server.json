@@ -4,6 +4,7 @@
       "module": "commonjs"
     },
     "angularCompilerOptions": {
+      "enableIvy": true,
       "entryModule": "app/app.server.module#AppServerModule"
     }
 }

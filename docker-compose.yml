@@ -27,7 +27,7 @@ services:
       context: .
       dockerfile: src/Services/Reestr/Reestr.API/Dockerfile
   postgres:
-    image: postgres:11.2-alpine
+    image: postgres:11-alpine
   pgadmin:
     image: dpage/pgadmin4
     depends_on:
