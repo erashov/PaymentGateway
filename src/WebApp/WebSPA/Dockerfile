@@ -1,5 +1,5 @@
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-alpine AS base
-RUN apk update && apk add nodejs nodejs-npm
+#RUN apk update && apk add nodejs nodejs-npm
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443

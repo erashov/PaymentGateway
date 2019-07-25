@@ -21,15 +21,15 @@ namespace WebSPA
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           
-            services.AddMvc(option=> option.EnableEndpointRouting=false)
-                .AddNewtonsoftJson();
+
+            services.AddMvc(option => option.EnableEndpointRouting = false);
+            //    .AddNewtonsoftJson();
 
             // In production, the Angular files will be served from this directory
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "ClientApp/dist";
-            });
+            //services.AddSpaStaticFiles(configuration =>
+            //{
+            //    configuration.RootPath = "ClientApp/dist";
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,27 +48,30 @@ namespace WebSPA
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseSpaStaticFiles();
+            // app.UseSpaStaticFiles();
 
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller}/{action=Index}/{id?}");
+                routes.MapSpaFallbackRoute(
+                    name: "spa - fallback",
+                    defaults: new { controller = "Home", action = "Index" });
             });
 
-            app.UseSpa(spa =>
-            {
-                // To learn more about options for serving an Angular SPA from ASP.NET Core,
-                // see https://go.microsoft.com/fwlink/?linkid=864501
+            //app.UseSpa(spa =>
+            //{
+            //    // To learn more about options for serving an Angular SPA from ASP.NET Core,
+            //    // see https://go.microsoft.com/fwlink/?linkid=864501
 
-                spa.Options.SourcePath = "ClientApp";
+            //    spa.Options.SourcePath = "ClientApp";
 
-                if (env.IsDevelopment())
-                {
-                    spa.UseAngularCliServer(npmScript: "start");
-                }
-            });
+            //    if (env.IsDevelopment())
+            //    {
+            //        spa.UseAngularCliServer(npmScript: "start");
+            //    }
+            //});
         }
     }
 }
