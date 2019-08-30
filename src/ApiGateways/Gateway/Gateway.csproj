@@ -4,9 +4,11 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <UserSecretsId>e57163ef-33a9-49a4-b573-abf5ffb6b7d5</UserSecretsId>
+    <DockerfileContext>..\..\..</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.2" />
     <PackageReference Include="Ocelot" Version="13.8.0-alpha0006" />
   </ItemGroup>
 
