@@ -1,10 +1,10 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-alpine AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine AS base
 #RUN apk update && apk add nodejs nodejs-npm
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/core/sdk:3.0-alpine AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS build
 WORKDIR /src
 COPY ["src/WebApp/WebSPA/WebSPA.csproj", "src/WebApp/WebSPA/"]
 RUN dotnet restore "src/WebApp/WebSPA/WebSPA.csproj"
